@@ -13,7 +13,7 @@ class NightWriter
                   'f'=>['00', '0.', '..'],
                   'g'=>['00', '00', '..'],
                   'h'=>['0.', '00', '..'],
-                  'i'=>['0.', '.0', '..'],
+                  'i'=>['.0', '.0', '..'],
                   'j'=>['.0', '0.', '..'],
                   'k'=>['0.', '..', '0.'],
                   'l'=>['0.', '0.', '0.'],
@@ -34,10 +34,10 @@ class NightWriter
                   ' '=>['..', '..', '..']
                 }
                                               
-    #look at first character of message
+    #split word into an array of strings
 
 
-    #find it in the hash(it will be a key)
+    #iterate over each character in the array, find it in the hash(it will be a key) and assign its value to the var braille character
     braille_character = translator[message]  
     
     #return the value for that key in 3 separate lines
@@ -47,9 +47,9 @@ class NightWriter
   #runner
   english_msg = NightWriter.new
 
-  file = File.open(ARGV[0], "r")  #opens a new file and assigns it to file
-  message = file.read             #reads the file and assigns it to the existing file message.txt
-  file.close                      #closes the new file                                                                
+  file = File.open(ARGV[0], "r")                                        #opens a new file and assigns it to file
+  message = file.read                                                   #reads the file and assigns it to the existing file message.txt
+  file.close                                                            #closes the new file                                                                
   puts "created 'braille.txt' containing #{message.length} characters"  #prints the string to the terminal
   
   writer = File.open(ARGV[1], "w")                                      #opens a new file and assign it to writer
