@@ -37,7 +37,7 @@ class NightWriter
     #split word into an array of strings
 
 
-    #iterate over each character in the array, find it in the hash(it will be a key) and assign its value to the var braille character
+    #iterate over each character in the array, find it in the hash(it will be a key) and assign its value to braille character
     braille_character = translator[message]  
     
     #return the value for that key in 3 separate lines

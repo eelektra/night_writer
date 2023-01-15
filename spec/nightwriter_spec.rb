@@ -8,7 +8,7 @@ describe NightWriter do
       expect(english_msg).to be_a(NightWriter)
     end
 
-    xit 'can convert the letter a to braille' do
+    it 'can convert the letter a to braille' do
       english_msg = NightWriter.new
       expect('a').to eq(['0.', '..', '..'])
     end
