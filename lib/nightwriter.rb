@@ -5,39 +5,46 @@ class NightWriter
   end
 
   def translate_english_to_braille(message)
-    translator = {'a'=> ['0.', '..', '..'], 
-                  # 'b'=>[]
-                  # 'c'=>[]
-                  # 'd'=>[]
-                  # 'e'=>[]
-                  # 'f'=>[]
-                  # 'g'=>[]
-                  # 'h'=>[]
-                  # 'i'=>[]
-                  # 'j'=>[]
-                  # 'k'=>[]
-                  # 'l'=>[]
-                  # 'm'=>[]
-                  # 'n'=>[]
-                  # 'o'=>[]
-                  # 'p'=>[]
-                  # 'q'=>[]
-                  # 'r'=>[]
-                  # 's'=>[]
-                  # 't'=>[]
-                  # 'u'=>[]
-                  # 'v'=>[]
-                  # 'w'=>[]
-                  # 'x'=>[]
-                  # 'y'=>[]
-                  # 'z'=>[]
-                  # ' '=>[]
+    translator = {'a'=>['0.', '..', '..'], 
+                  'b'=>['0.', '0.', '..'],
+                  'c'=>['00', '..', '..'],
+                  'd'=>['00', '.0', '..'],
+                  'e'=>['0.', '.0', '..'],
+                  'f'=>['00', '0.', '..'],
+                  'g'=>['00', '00', '..'],
+                  'h'=>['0.', '00', '..'],
+                  'i'=>['0.', '.0', '..'],
+                  'j'=>['.0', '0.', '..'],
+                  'k'=>['0.', '..', '0.'],
+                  'l'=>['0.', '0.', '0.'],
+                  'm'=>['00', '..', '0.'],
+                  'n'=>['00', '.0', '0.'],
+                  'o'=>['0.', '.0', '0.'],
+                  'p'=>['00', '0.', '0.'],
+                  'q'=>['00', '00', '0.'],
+                  'r'=>['0.', '00', '0.'],
+                  's'=>['.0', '0.', '0.'],
+                  't'=>['.0', '00', '0.'],
+                  'u'=>['0.', '..', '00'],
+                  'v'=>['0.', '0.', '00'],
+                  'w'=>['.0', '00', '.0'],
+                  'x'=>['00', '..', '00'],
+                  'y'=>['00', '.0', '00'],
+                  'z'=>['0.', '.0', '00'],
+                  ' '=>['..', '..', '..']
                 }
-                                              #look at first character of message
-    braille_character = translator[message]   #find it in the hash(it will be a key)
-    braille_character[0] + "\n" +   braille_character[1] + "\n" + braille_character[2]           #print out  the value for that key in 3 separate lines
+                                              
+    #look at first character of message
+
+
+    #find it in the hash(it will be a key)
+    braille_character = translator[message]  
+    
+    #return the value for that key in 3 separate lines
+    braille_character[0] + "\n" +   braille_character[1] + "\n" + braille_character[2]           
   end
 
+  #runner
   english_msg = NightWriter.new
 
   file = File.open(ARGV[0], "r")  #opens a new file and assigns it to file
