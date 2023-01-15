@@ -1,0 +1,53 @@
+#From "Working with Files" lesson, opens message.txt,
+#reads it and prints the contents to the terminal
+
+# file = File.open('message.txt', "r")
+# msg = file.read
+# puts "msg = #{msg}"
+# msg1 = file.rewind    #dont know what this one does
+# puts msg1             # prints 0
+# msg2 = file.readlines
+# puts msg2
+
+
+#From "Working with Files" lesson, lines 25-28 creates a new file and
+#writes something in it
+
+# new_file = File.open('new_msg.txt', "w") # creates a new file called new_msg.txt
+# new_file.write("all the text you want") # writes "all the text you want in it"
+# new_file.close # closes new_file
+
+ARGV is an array
+message_file = File.open(ARGV[0], "r")
+new_file = File.new(ARGV[1], "w")
+new_file.write(message)
+message_file.read
+new_file.write("all the text you want")
+new_file.close
+
+braille.txt (msg converted to braille)
+
+Missed this bullet in iteration 1:  • braille.txt is the name that we would like to give to a file that we will create in iteration 2.
+ 
+message.txt (what user wants to convert)
+
+take in message.txt then translate message.txt to braille.  Braille.txt is a file created by your runner file (night_writer) and contains the translated braille message.
+
+make the translation work first, then build your objects and methods
+
+ 1-take in a file and then output a file
+ 2-make a hash where letters are keys and braille is output
+ 3-translate 1 letter to braille
+ 4-translate several characters
+ 5 - spec files (tests), classes (init, methods), runner(night_writer.rb)
+
+we created a var and opened a file we created
+file = File.open(ARG[0], "r")
+text = file.read
+file.close
+
+change the text 
+capitalized = text.upcase
+writer = File.open(ARGV[1], "w")
+writer.write(capitalized)
+writer.close
