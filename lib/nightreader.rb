@@ -38,7 +38,8 @@ class NightReader
     
     
 
-    # iterate over the array, each char array is a key which corresponds to an english character value
+    # iterate over the array, each char array is a key which corresponds to an english character value and 
+    #write it to english.txt
    
   
   end

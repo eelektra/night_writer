@@ -6,7 +6,7 @@ class NightWriter
   #   @braille_character = []
   # end
 
-  def translate_english_to_braille(message)
+  def translate_english_to_braille(message, writer)
     translator = {'a'=>['0.', '..', '..'], 
                   'b'=>['0.', '0.', '..'],
                   'c'=>['00', '..', '..'],
@@ -38,22 +38,21 @@ class NightWriter
       
 
     # split word into an array of individual char strings
-    message.split#(%r{\s*})
+    message.split(%r{\s*})
     
-    # iterate over each character in the array, find it in the hash(it's a key), assign its value to braille_character,
-    # and return the first element of each character
+    # iterate over each character in the array, find it in the hash(it's a key), and
+    # shovel its value(braille array)  into braille_character
     
     braille_character = []
     message.split(%r{\s*}).each do |char|
-      braille_character << translator[char]
-      
+      braille_character << translator[char] 
     end 
     
     braille_character.transpose
     transposed_array = []
-    transposed_array.concat(braille_character.transpose)
+    transposed_array.concat(braille_character.transpose) #so it is not triple nested
     joined_array = transposed_array.map do |array|
-      "#{array.join}\n"
+      writer.write("#{array.join}\n")                    #join array elements together, start a new line after each element, and write it to braille.txt
     end
   end
 end
