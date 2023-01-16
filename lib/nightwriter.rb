@@ -47,9 +47,10 @@ class NightWriter
     message.split(%r{\s*}).each do |char|
       braille_character << translator[char]
     end 
-    braille_character[0][0] + braille_character[1][0] + braille_character[2][0] + "\n" +
-    braille_character[0][1] + braille_character[1][1] + braille_character[2][1] + "\n" +
-    braille_character[0][2] + braille_character[1][2] + braille_character[2][2]
+    braille_character.transpose
+    braille_character.each do |array|
+    array + '\n' + array + '\n' + array
+    end
   end
 end
 
@@ -61,4 +62,10 @@ end
 
  # for 3 character message
 
-# braille_character[0][0] + braille_character[1][0] + braille_character[2][0]
+# braille_character[0][0] + braille_character[1][0] + braille_character[2][0] + "\n" +
+# braille_character[0][1] + braille_character[1][1] + braille_character[2][1] + "\n" +
+# braille_character[0][2] + braille_character[1][2] + braille_character[2][2]
+
+# or
+
+# braille_character[0][0] + "\n" + braille_character[0][1] + "\n" + braille_character[0][2]
