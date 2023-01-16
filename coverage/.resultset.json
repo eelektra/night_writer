@@ -5,8 +5,10 @@
         "lines": [
           1,
           null,
+          1,
           null,
-          null,
+          1,
+          2,
           null,
           null,
           1,
@@ -40,36 +42,21 @@
           null,
           null,
           null,
-          null,
-          null,
-          null,
           0,
           null,
           null,
           0,
+          0,
+          0,
           null,
           null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
+          0,
           null,
           null,
           null
         ]
-      },
-      "/Users/carolrieping/turing/mod_1/projects/night_writer/spec/nw_to_english_spec.rb": {
-        "lines": [
-
-        ]
       }
     },
-    "timestamp": 1673817431
+    "timestamp": 1673823195
   }
 }

@@ -1,7 +1,7 @@
  
  require './lib/nightwriter.rb'
 
-english_msg = NightWriter.new                                          #create a NightWriter object english_msg
+english_msg = NightWriter.new                                          #creates a NightWriter var english_msg
 
  file = File.open(ARGV[0], "r")                                        #opens a new file and assigns it to file
  message = file.read                                                   #reads the file and assigns it to the existing file message.txt

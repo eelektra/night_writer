@@ -1,7 +1,9 @@
 class NightWriter
 
+  # attr :braille_character
+
   # def initialize
-    
+  #   @braille_character = []
   # end
 
   def translate_english_to_braille(message)
@@ -33,27 +35,30 @@ class NightWriter
                   'z'=>['0.', '.0', '00'],
                   ' '=>['..', '..', '..']
                 }
-                                              
-    #split word into an array of strings
+      
 
-
-    #iterate over each character in the array, find it in the hash(it will be a key) and assign its value to braille character
-    braille_character = translator[message]  
+    # split word into an array of individual char strings
+    message.split(%r{\s*})
     
-    #return the value for that key in 3 separate lines
-    braille_character[0] + "\n" +   braille_character[1] + "\n" + braille_character[2]           
+    # iterate over each character in the array, find it in the hash(it's a key), assign its value to braille_character,
+    # and return the first element of each character
+    
+    braille_character = []
+    message.split(%r{\s*}).each do |char|
+      braille_character << translator[char]
+    end 
+    braille_character[0][0] + braille_character[1][0] + braille_character[2][0] + "\n" +
+    braille_character[0][1] + braille_character[1][1] + braille_character[2][1] + "\n" +
+    braille_character[0][2] + braille_character[1][2] + braille_character[2][2]
   end
-
-  # english_msg = NightWriter.new
-
-  # file = File.open(ARGV[0], "r")                                        #opens a new file and assigns it to file
-  # message = file.read                                                   #reads the file and assigns it to the existing file message.txt
-  # file.close                                                            #closes the new file                                                                
-  # puts "created 'braille.txt' containing #{message.length} characters"  #prints the string to the terminal
-  
-  # writer = File.open(ARGV[1], "w")                                      #opens a new file and assign it to writer
-  # writer.write(english_msg.translate_english_to_braille(message))       #write translated english message to new file (braille.txt)
-  # writer.close                                                          #close file
-  
-
 end
+
+# require 'pry'; binding.pry
+   
+#for one character message
+  #   braille_character = translator[message]
+  #   braille_character[0] + "\n" +  braille_character[1] + "\n" + braille_character[2] 
+
+ # for 3 character message
+
+# braille_character[0][0] + braille_character[1][0] + braille_character[2][0]
