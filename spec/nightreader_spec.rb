@@ -5,7 +5,7 @@ describe NightReader do
   describe 'initialize' do
     it 'exists' do
       braille_msg = NightReader.new
-      expect(english_msg).to be_a(NightWriter)
+      expect(braille_msg).to be_a(NightReader)
     end
 
     xit 'can convert braille a to a' do
