@@ -31,21 +31,16 @@ class NightReader
                   }
       
 
-    # divide braille characters into 
-    message.split(%r{\s*})
+    # divide braille characters into an array of arrays by top, middle, and bottom
     
-    # iterate over each character in the array, find it in the hash(it's a key), and shovel it into braille_character
     
-    braille_character = []
-    message.split(%r{\s*}).each do |char|
-      braille_character << translator[char]
-    end 
+    # transpose the array into arrays by character
+    
+    
 
-    # transpose the array so the tops, middle, and bottom of each braille character is in it's own array.
-    braille_character.transpose
-      braille_character.each do |array|
-      array + '\n'
-    end
+    # iterate over the array, each char array is a key which corresponds to an english character value
+   
+  
   end
 end
 end
