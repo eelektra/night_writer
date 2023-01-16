@@ -48,8 +48,8 @@ class NightWriter
       braille_character << translator[char]
     end 
     braille_character.transpose
-    braille_character.each do |array|
-    array + '\n' + array + '\n' + array
+      braille_character.each do |array|
+      array + '\n'
     end
   end
 end
