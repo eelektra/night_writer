@@ -38,7 +38,7 @@ class NightWriter
       
 
     # split word into an array of individual char strings
-    message.split(%r{\s*})
+    message.split#(%r{\s*})
     
     # iterate over each character in the array, find it in the hash(it's a key), assign its value to braille_character,
     # and return the first element of each character
@@ -46,10 +46,14 @@ class NightWriter
     braille_character = []
     message.split(%r{\s*}).each do |char|
       braille_character << translator[char]
+      
     end 
+    
     braille_character.transpose
-      braille_character.each do |array|
-      array + '\n'
+    transposed_array = []
+    transposed_array.concat(braille_character.transpose)
+    joined_array = transposed_array.map do |array|
+      "#{array.join}\n"
     end
   end
 end
