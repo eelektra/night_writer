@@ -8,11 +8,6 @@ describe NightWriter do
       expect(english_msg).to be_a(NightWriter)
     end
 
-    it 'can convert the letter t to braille' do
-      english_msg = NightWriter.new
-      expect(english_msg.braille_character[0]).to match(['.0', '00', '0.'])
-    end
-
     xit 'can convert the letter a to braille' do
       english_msg = NightWriter.new
       expect('a').to eq(['0.', '..', '..'])
@@ -148,7 +143,7 @@ describe NightWriter do
       expect(' ').to eq(['..', '..', '..'])
     end
 
-    xit 'can convert the word "the" to braille' do
+    xit 'can convert the word the to braille' do
       english_msg = NightWriter.new
       expect('the').to eq(['.0', '00', '0.'], ['0.', '00', '..'], ['0.', '.0', '..'])
     end

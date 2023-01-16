@@ -4,7 +4,7 @@ require './lib/nightreader'
 describe NightReader do
   describe 'initialize' do
     it 'exists' do
-      english_msg = NightReader.new
+      braille_msg = NightReader.new
       expect(english_msg).to be_a(NightWriter)
     end
 

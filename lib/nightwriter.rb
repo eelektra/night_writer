@@ -1,11 +1,5 @@
 class NightWriter
 
-  # attr :braille_character
-
-  # def initialize
-  #   @braille_character = []
-  # end
-
   def translate_english_to_braille(message, writer)
     translator = {'a'=>['0.', '..', '..'], 
                   'b'=>['0.', '0.', '..'],

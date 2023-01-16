@@ -1,6 +1,6 @@
 class NightReader
 
-  def translate_braille_to_english(message)
+  def translate_braille_to_english(message, writer)
     translator = {['0.', '..', '..'] => 'a', 
                   ['0.', '0.', '..'] => 'b',
                   ['00', '..', '..'] => 'c',
@@ -39,9 +39,8 @@ class NightReader
     
 
     # iterate over the array, each char array is a key which corresponds to an english character value and 
-    #write it to english.txt
+    # write it to english.txt
    
   
   end
-end
 end
