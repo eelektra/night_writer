@@ -38,6 +38,9 @@ class NightReader
     single_string_array = braille_array.map do |string|
       string.scan(/../)
     end
+    
+    # then convert to an array of arrays by character
+    #char_array = single_string_array.transpose
     i=0
     n=2
     char_array = []
@@ -46,15 +49,11 @@ class NightReader
       i += 3
       n += 3
     end
-    # then convert to an array of arrays by character
-    #char_array = single_string_array.transpose
      
     #get the array's value which will be the translation or english letter
     #and write it to writer (original_message.txt)
     char_array.each do |char|
     writer.write(translator[char])  
-
-
     end          
   end
 end
