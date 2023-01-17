@@ -3,6 +3,9 @@ require './lib/nightwriter'
 
 describe NightWriter do
   describe 'initialize' do
+  input = File.open("engl.txt", "w+")  { |file| file.write("the cat") }                                      #opens a new file and assigns it to file
+  output = File.open("brlle.txt", "w+") 
+
     it 'exists' do
       english_msg = NightWriter.new
       expect(english_msg).to be_a(NightWriter)
@@ -10,45 +13,23 @@ describe NightWriter do
 
     it 'can convert the letter a to braille' do
       english_msg = NightWriter.new
-      # create a file for testing and open a writer file
-      # read the file and set it as a local variable
-      #that will give you the ability to pass arguments to the method translate
-      file = File.open(ARGV[0], "r")                                        #opens a new file and assigns it to file
-      message = file.read                                                   #reads the file and assigns it to the existing file message.txt
-      file.close   
-      writer = File.open(ARGV[1], "w")
-      writer.write(english_msg.translate_english_to_braille(message, writer))
-      expect(translate_english_to_braille('a', writer)).to eq(['0.', '..', '..'])
+      english_msg.translate_english_to_braille('a', output)
+      output.rewind
+      expect(File.read(output)).to eq("0.\n..\n..\n")
     end
 
-    xit 'can convert the letter e to braille' do
+    it 'can convert the word the to braille' do
       english_msg = NightWriter.new
-      expect(translate_english_to_braille('e', writer)).to eq(['0.', '.0', '..'])
+      english_msg.translate_english_to_braille('the', output)
+      output.rewind
+      expect(File.read(output)).to eq(".00.0.\n0000.0\n0.....\n")
     end
 
-    xit 'can convert the letter h to braille' do
+    it 'can convert the sentence the quick brown fox jumps over the lazy dog' do
       english_msg = NightWriter.new
-      expect('h').to eq(['0.', '00', '..'])
-    end
-
-    xit 'can convert the letter t to braille' do
-      english_msg = NightWriter.new
-      expect('t').to eq(['.0', '00', '0.'])
-    end
-
-    xit 'can convert a space to braille' do
-      english_msg = NightWriter.new
-      expect(' ').to eq(['..', '..', '..'])
-    end
-
-    xit 'can convert the word the to braille' do
-      english_msg = NightWriter.new
-      expect('the').to eq(['.0', '00', '0.'], ['0.', '00', '..'], ['0.', '.0', '..'])
-    end
-
-    xit 'can convert the sentence the quick brown fox jumps over the lazy dog' do
-      english_msg = NightWriter.new
-      expect('the').to eq([])
+      english_msg.translate_english_to_braille('the quick brown fox jumps over the lazy dog', output)
+      output.rewind
+      expect(File.read(output)).to eq(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00...0......0.00.000.0..0..0....0.....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n000.00\n.0.000\n..0...\n")
     end
   end
 end

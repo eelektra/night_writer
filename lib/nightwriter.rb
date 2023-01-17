@@ -47,6 +47,7 @@ class NightWriter
     # if the first element(tops array) of transposed array < 40
     if transposed_array[0].length <= 40
       joined_array = transposed_array.map do |array|
+        # require 'pry'; binding.pry
         #join array elements together and start a new line after each element, and write it to braille.txt
         writer.write("#{array.join}\n")                    
       end
@@ -62,40 +63,41 @@ class NightWriter
     bottom = transposed_array[2]
    
     #break each array into sets of 40
-    if transposed_array.size < 80
     top_line = top.each_slice(40).to_a 
     middle_line = mid.each_slice(40).to_a
     bottom_line = bottom.each_slice(40).to_a
     
     #write all the top lines follwed by m
-    writer.write("#{top_line[0].join}\n")
-    writer.write("#{middle_line[0].join}\n")
-    writer.write("#{bottom_line[0].join}\n\n")
-    writer.write("#{top_line[1].join}\n")
-    writer.write("#{middle_line[1].join}\n")
-    writer.write("#{bottom_line[1].join}\n")
-
-    elsif top.size < 120
-    #break each array into sets of 40
-      top_line = top.each_slice(40).to_a 
-      middle_line = mid.each_slice(40).to_a
-      bottom_line = bottom.each_slice(40).to_a
-      
-      #write all the top lines follwed by m
-      writer.write("#{top_line[0].join}\n")
-      writer.write("#{middle_line[0].join}\n")
-      writer.write("#{bottom_line[0].join}\n\n")
-      writer.write("#{top_line[1].join}\n")
-      writer.write("#{middle_line[1].join}\n")
-      writer.write("#{bottom_line[1].join}\n\n")
-      writer.write("#{top_line[2].join}\n")
-      writer.write("#{middle_line[2].join}\n")
-      writer.write("#{bottom_line[2].join}\n")
-
-    else puts "Please enter 1 to 120 chars"
+    i = 0
+    while i < top_line.length
+    writer.write("#{top_line[i].join}\n")
+    writer.write("#{middle_line[i].join}\n")
+    writer.write("#{bottom_line[i].join}\n")
+    i += 1
     end
   end
 end
+
+    # elsif top.size < 120
+    #break each array into sets of 40
+    #   top_line = top.each_slice(40).to_a 
+    #   middle_line = mid.each_slice(40).to_a
+    #   bottom_line = bottom.each_slice(40).to_a
+      
+    #   #write all the top lines follwed by m
+    #   writer.write("#{top_line[0].join}\n")
+    #   writer.write("#{middle_line[0].join}\n")
+    #   writer.write("#{bottom_line[0].join}\n\n")
+    #   writer.write("#{top_line[1].join}\n")
+    #   writer.write("#{middle_line[1].join}\n")
+    #   writer.write("#{bottom_line[1].join}\n\n")
+    #   writer.write("#{top_line[2].join}\n")
+    #   writer.write("#{middle_line[2].join}\n")
+    #   writer.write("#{bottom_line[2].join}\n")
+
+    # else puts "Please enter 1 to 120 chars"
+    
+  
 
 # require 'pry'; binding.pry
    
