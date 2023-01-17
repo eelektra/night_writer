@@ -18,9 +18,11 @@ describe NightReader do
       expect(File.read(output)).to eq('a')
     end
 
-    xit 'can convert braille the to the' do
-      english_msg = NightReader.new
-      expect(['.0', '00', '0.'], ['0.', '00', '..'], ['0.', '.0', '..']).to eq('the')
+    it 'can convert braille the to the' do
+      braille_msg = NightReader.new
+      braille_msg.translate_braille_to_english(".00.0.\n0000.0\n0.....\n", output)
+      output.rewind
+      expect(output.read).to eq('the')
     end
   end
 end

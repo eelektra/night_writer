@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-17T15:13:17-07:00">2023-01-17T15:13:17-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-17T15:40:04-07:00">2023-01-17T15:40:04-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -29,8 +29,8 @@
      </span>
      covered at
      <span class="covered_strength">
-       <span class="yellow">
-         1.0
+       <span class="green">
+         2.4
        </span>
     </span> hits/line
     )
@@ -43,8 +43,8 @@
   </div>
 
   <div class="t-line-summary">
-    <b>6</b> relevant lines,
-    <span class="green"><b>6</b> lines covered</span> and
+    <b>10</b> relevant lines,
+    <span class="green"><b>10</b> lines covered</span> and
     <span class="red"><b>0</b> lines missed. </span>
     (<span class="green">
   100.0%
@@ -73,11 +73,11 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#14566cd30c26ff99010772fff96e31752ca1380e" class="src_link" title="lib/nightreader.rb">lib/nightreader.rb</a></td>
             <td class="green strong cell--number t-file__coverage">100.00 %</td>
-            <td class="cell--number">60</td>
-            <td class="cell--number">6</td>
-            <td class="cell--number">6</td>
+            <td class="cell--number">62</td>
+            <td class="cell--number">10</td>
+            <td class="cell--number">10</td>
             <td class="cell--number">0</td>
-            <td class="cell--number">1.00</td>
+            <td class="cell--number">2.40</td>
             
           </tr>
         
@@ -112,8 +112,8 @@
     
 
     <div class="t-line-summary">
-      <b>6</b> relevant lines.
-      <span class="green"><b>6</b> lines covered</span> and
+      <b>10</b> relevant lines.
+      <span class="green"><b>10</b> lines covered</span> and
       <span class="red"><b>0</b> lines missed.</span>
     </div>
 
@@ -158,8 +158,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="4">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="4">
+            <span class="hits">2</span>
             
 
             
@@ -488,8 +488,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="34">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="34">
+            <span class="hits">2</span>
             
 
             
@@ -499,8 +499,8 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="35">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="35">
+            <span class="hits">2</span>
             
 
             
@@ -516,7 +516,7 @@
 
             
 
-            <code class="ruby">               </code>
+            <code class="ruby">          </code>
           </li>
         </div>
       
@@ -527,29 +527,29 @@
 
             
 
-            <code class="ruby">    #split the array into single string elements</code>
+            <code class="ruby">    # chunk the array into an array of arrays by twos </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="38">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="38">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    # single_string_array = braille_array.split(//)</code>
+            
+
+            <code class="ruby">    single_string_array = braille_array.map do |string|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="39">
-            
-            
-
+          <li class="covered" data-hits="6" data-linenumber="39">
+            <span class="hits">6</span>
             
 
-            <code class="ruby"></code>
+            
+
+            <code class="ruby">      string.scan(/../)</code>
           </li>
         </div>
       
@@ -560,7 +560,7 @@
 
             
 
-            <code class="ruby">    # chunk the array to an array of arrays by twos  </code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -571,7 +571,7 @@
 
             
 
-            <code class="ruby">    #chunked_array = braille_array.to_s.each_slice(2).to_a</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -582,18 +582,18 @@
 
             
 
-            <code class="ruby">    #require &#39;pry&#39;; binding.pry </code>
+            <code class="ruby">    # then convert to an array of arrays by character</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="43">
-            
-            
-
+          <li class="covered" data-hits="2" data-linenumber="43">
+            <span class="hits">2</span>
             
 
-            <code class="ruby">    # then convert to an array of arrays by character</code>
+            
+
+            <code class="ruby">    char_array = single_string_array.transpose</code>
           </li>
         </div>
       
@@ -604,7 +604,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
@@ -631,24 +631,24 @@
         </div>
       
         <div>
-          <li class="covered" data-hits="1" data-linenumber="47">
-            <span class="hits">1</span>
+          <li class="covered" data-hits="2" data-linenumber="47">
+            <span class="hits">2</span>
             
 
             
 
-            <code class="ruby">     writer.write(translator[braille_array])             </code>
+            <code class="ruby">    char_array.each do |char|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="48">
-            
-            
-
+          <li class="covered" data-hits="4" data-linenumber="48">
+            <span class="hits">4</span>
             
 
-            <code class="ruby">  end</code>
+            
+
+            <code class="ruby">    writer.write(translator[char])  </code>
           </li>
         </div>
       
@@ -659,7 +659,7 @@
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">    end          </code>
           </li>
         </div>
       
@@ -670,7 +670,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -681,7 +681,7 @@
 
             
 
-            <code class="ruby">    # require &#39;pry&#39;; binding.pry</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -703,7 +703,7 @@
 
             
 
-            <code class="ruby">    # for one character</code>
+            <code class="ruby">    # require &#39;pry&#39;; binding.pry</code>
           </li>
         </div>
       
@@ -714,7 +714,7 @@
 
             
 
-            <code class="ruby">    #convert the message in braille.txt to an array and store it in an empty array</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -725,7 +725,7 @@
 
             
 
-            <code class="ruby">    # braille_array = []</code>
+            <code class="ruby">    # for one character</code>
           </li>
         </div>
       
@@ -736,7 +736,7 @@
 
             
 
-            <code class="ruby">    # braille_array = message.split($/)</code>
+            <code class="ruby">    #convert the message in braille.txt to an array and store it in an empty array</code>
           </li>
         </div>
       
@@ -747,7 +747,7 @@
 
             
 
-            <code class="ruby">    # require &#39;pry&#39;; binding.pry</code>
+            <code class="ruby">    # braille_array = []</code>
           </li>
         </div>
       
@@ -758,7 +758,7 @@
 
             
 
-            <code class="ruby">    #get the array&#39;s value which will be the translation or english letter</code>
+            <code class="ruby">    # braille_array = message.split($/)</code>
           </li>
         </div>
       
@@ -769,12 +769,34 @@
 
             
 
-            <code class="ruby">    #and write it to writer (original_message.txt)</code>
+            <code class="ruby">    # require &#39;pry&#39;; binding.pry</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="60">
+            
+            
+
+            
+
+            <code class="ruby">    #get the array&#39;s value which will be the translation or english letter</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby">    #and write it to writer (original_message.txt)</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
             
             
 
