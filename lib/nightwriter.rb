@@ -29,22 +29,15 @@ class NightWriter
                   'z'=>['0.', '.0', '00'],
                   ' '=>['..', '..', '..']
                 }
-      
-
-    # split word into an array of individual char strings
-    message.split(%r{\s*})
-    
     # iterate over each character in the array, find it in the hash(it's a key), and
     # shovel its value(braille array)  into braille_character
-    
     braille_character = []
-    message.split(%r{\s*}).each do |char|
+    message.split(//).each do |char|
       braille_character << translator[char] 
     end 
-    
     braille_character.transpose
     transposed_array = []
-    transposed_array.concat(braille_character.transpose) #so it is not triple nested
+    transposed_array.concat(braille_character.transpose) #store it in iteratable array and not triple nested
     joined_array = transposed_array.map do |array|
       writer.write("#{array.join}\n")                    #join array elements together, start a new line after each element, and write it to braille.txt
     end

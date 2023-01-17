@@ -1,7 +1,7 @@
 {
   "RSpec": {
     "coverage": {
-      "/Users/carolrieping/turing/mod_1/projects/night_writer/lib/nightreader.rb": {
+      "/Users/carolrieping/turing/mod_1/projects/night_writer/lib/nightwriter.rb": {
         "lines": [
           1,
           null,
@@ -36,6 +36,21 @@
           null,
           null,
           null,
+          0,
+          0,
+          0,
+          null,
+          0,
+          0,
+          0,
+          0,
+          0,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
           null,
           null,
           null,
@@ -52,6 +67,6 @@
         ]
       }
     },
-    "timestamp": 1673913360
+    "timestamp": 1673916990
   }
 }

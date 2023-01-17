@@ -44,3 +44,5 @@ class NightReader
   
   end
 end
+
+# require 'pry'; binding.pry

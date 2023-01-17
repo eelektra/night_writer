@@ -1,4 +1,3 @@
- 
 require './lib/nightwriter.rb'
 
 english_msg = NightWriter.new                                         #creates a NightWriter var english_msg
