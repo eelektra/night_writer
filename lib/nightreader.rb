@@ -30,14 +30,13 @@ class NightReader
                   ['..', '..', '..'] => ' '
                   }
     
-    # convert the message in braille.txt to an array and store it in an empty array
+    #convert the message in braille.txt to an array and store it in an empty array
     braille_array = []
-    braille_array << message.split($/)
+    braille_array = message.split($/)
     
     #get the array's value which will be the translation or english letter
-    #and write it to writer
-
-    require 'pry'; binding.pry  
+    #and write it to writer (original_message.txt)
+     writer.write(translator[braille_array])             
   end
 end
 
