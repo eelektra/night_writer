@@ -14,7 +14,7 @@
       <img src="./assets/0.12.3/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" class="hide">
-      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-16T17:56:30-07:00">2023-01-16T17:56:30-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2023-01-17T08:10:07-07:00">2023-01-17T08:10:07-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -73,7 +73,7 @@
           <tr class="t-file">
             <td class="strong t-file__name"><a href="#dd9ffb2f24305dd079468a21c1ec9df68d1730b4" class="src_link" title="lib/nightwriter.rb">lib/nightwriter.rb</a></td>
             <td class="red strong cell--number t-file__coverage">18.18 %</td>
-            <td class="cell--number">61</td>
+            <td class="cell--number">65</td>
             <td class="cell--number">11</td>
             <td class="cell--number">2</td>
             <td class="cell--number">9</td>
@@ -472,7 +472,7 @@
 
             
 
-            <code class="ruby">    # iterate over each character in the array, find it in the hash(it&#39;s a key), and</code>
+            <code class="ruby">    #split the message into individual string characters</code>
           </li>
         </div>
       
@@ -483,18 +483,18 @@
 
             
 
-            <code class="ruby">    # shovel its value(braille array)  into braille_character</code>
+            <code class="ruby">    # iterate over each character in the array, find it in the hash(it&#39;s a key), and</code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="34">
+          <li class="never" data-hits="" data-linenumber="34">
             
             
 
             
 
-            <code class="ruby">    braille_character = []</code>
+            <code class="ruby">    # shovel its value(braille array) into braille_character</code>
           </li>
         </div>
       
@@ -505,7 +505,7 @@
 
             
 
-            <code class="ruby">    message.split(//).each do |char|</code>
+            <code class="ruby">    braille_character = []</code>
           </li>
         </div>
       
@@ -516,12 +516,23 @@
 
             
 
+            <code class="ruby">    message.split(//).each do |char|</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="missed" data-hits="0" data-linenumber="37">
+            
+            
+
+            
+
             <code class="ruby">      braille_character &lt;&lt; translator[char] </code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="37">
+          <li class="never" data-hits="" data-linenumber="38">
             
             
 
@@ -532,35 +543,24 @@
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="38">
+          <li class="never" data-hits="" data-linenumber="39">
             
             
 
             
 
-            <code class="ruby">    braille_character.transpose</code>
+            <code class="ruby">    </code>
           </li>
         </div>
       
         <div>
-          <li class="missed" data-hits="0" data-linenumber="39">
+          <li class="never" data-hits="" data-linenumber="40">
             
             
 
             
 
-            <code class="ruby">    transposed_array = []</code>
-          </li>
-        </div>
-      
-        <div>
-          <li class="missed" data-hits="0" data-linenumber="40">
-            
-            
-
-            
-
-            <code class="ruby">    transposed_array.concat(braille_character.transpose) #store it in iteratable array and not triple nested</code>
+            <code class="ruby">    # transpose the arrays of braille chars into three arrays of tops, middles, and bottoms</code>
           </li>
         </div>
       
@@ -571,7 +571,7 @@
 
             
 
-            <code class="ruby">    joined_array = transposed_array.map do |array|</code>
+            <code class="ruby">    braille_character.transpose</code>
           </li>
         </div>
       
@@ -582,7 +582,7 @@
 
             
 
-            <code class="ruby">      writer.write(&quot;#{array.join}\n&quot;)                    #join array elements together, start a new line after each element, and write it to braille.txt</code>
+            <code class="ruby">    transposed_array = []</code>
           </li>
         </div>
       
@@ -593,40 +593,40 @@
 
             
 
-            <code class="ruby">    end</code>
+            <code class="ruby">    # require &#39;pry&#39;; binding.pry</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="44">
+          <li class="missed" data-hits="0" data-linenumber="44">
             
             
 
             
 
-            <code class="ruby">  end</code>
+            <code class="ruby">    transposed_array.concat(braille_character.transpose) #store transposed array in transposed array. if you use shovel, it will be tripled nested</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="45">
+          <li class="missed" data-hits="0" data-linenumber="45">
             
             
 
             
 
-            <code class="ruby">end</code>
+            <code class="ruby">    joined_array = transposed_array.map do |array|</code>
           </li>
         </div>
       
         <div>
-          <li class="never" data-hits="" data-linenumber="46">
+          <li class="missed" data-hits="0" data-linenumber="46">
             
             
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">      writer.write(&quot;#{array.join}\n&quot;)                    #join array elements together, start a new line after each element, and write it to braille.txt</code>
           </li>
         </div>
       
@@ -637,7 +637,7 @@
 
             
 
-            <code class="ruby"># require &#39;pry&#39;; binding.pry</code>
+            <code class="ruby">    end</code>
           </li>
         </div>
       
@@ -648,7 +648,7 @@
 
             
 
-            <code class="ruby">   </code>
+            <code class="ruby">  end</code>
           </li>
         </div>
       
@@ -659,7 +659,7 @@
 
             
 
-            <code class="ruby">#for one character message</code>
+            <code class="ruby">end</code>
           </li>
         </div>
       
@@ -670,7 +670,7 @@
 
             
 
-            <code class="ruby">  #   braille_character = translator[message]</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -681,7 +681,7 @@
 
             
 
-            <code class="ruby">  #   braille_character[0] + &quot;\n&quot; +  braille_character[1] + &quot;\n&quot; + braille_character[2] </code>
+            <code class="ruby"># require &#39;pry&#39;; binding.pry</code>
           </li>
         </div>
       
@@ -692,7 +692,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">   </code>
           </li>
         </div>
       
@@ -703,7 +703,7 @@
 
             
 
-            <code class="ruby"> # for 3 character message</code>
+            <code class="ruby">#for one character message</code>
           </li>
         </div>
       
@@ -714,7 +714,7 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby">  #   braille_character = translator[message]</code>
           </li>
         </div>
       
@@ -725,7 +725,7 @@
 
             
 
-            <code class="ruby"># braille_character[0][0] + braille_character[1][0] + braille_character[2][0] + &quot;\n&quot; +</code>
+            <code class="ruby">  #   braille_character[0] + &quot;\n&quot; +  braille_character[1] + &quot;\n&quot; + braille_character[2] </code>
           </li>
         </div>
       
@@ -736,7 +736,7 @@
 
             
 
-            <code class="ruby"># braille_character[0][1] + braille_character[1][1] + braille_character[2][1] + &quot;\n&quot; +</code>
+            <code class="ruby"></code>
           </li>
         </div>
       
@@ -747,7 +747,7 @@
 
             
 
-            <code class="ruby"># braille_character[0][2] + braille_character[1][2] + braille_character[2][2]</code>
+            <code class="ruby"> # for 3 character message</code>
           </li>
         </div>
       
@@ -769,7 +769,7 @@
 
             
 
-            <code class="ruby"># or</code>
+            <code class="ruby"># braille_character[0][0] + braille_character[1][0] + braille_character[2][0] + &quot;\n&quot; +</code>
           </li>
         </div>
       
@@ -780,12 +780,56 @@
 
             
 
-            <code class="ruby"></code>
+            <code class="ruby"># braille_character[0][1] + braille_character[1][1] + braille_character[2][1] + &quot;\n&quot; +</code>
           </li>
         </div>
       
         <div>
           <li class="never" data-hits="" data-linenumber="61">
+            
+            
+
+            
+
+            <code class="ruby"># braille_character[0][2] + braille_character[1][2] + braille_character[2][2]</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="62">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="63">
+            
+            
+
+            
+
+            <code class="ruby"># or</code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="64">
+            
+            
+
+            
+
+            <code class="ruby"></code>
+          </li>
+        </div>
+      
+        <div>
+          <li class="never" data-hits="" data-linenumber="65">
             
             
 

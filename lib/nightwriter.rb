@@ -29,21 +29,42 @@ class NightWriter
                   'z'=>['0.', '.0', '00'],
                   ' '=>['..', '..', '..']
                 }
-    # iterate over each character in the array, find it in the hash(it's a key), and
-    # shovel its value(braille array)  into braille_character
+    # split into individual english chars and translate
     braille_character = []
     message.split(//).each do |char|
       braille_character << translator[char] 
     end 
+    
+    # transpose the arrays of braille chars into an array of three arrays 
+    # of tops, middles, and bottoms
     braille_character.transpose
+    
+    #store the transposed array in transposed array using #concat. 
+    #if you use shovel it will be tripled nested
     transposed_array = []
-    transposed_array.concat(braille_character.transpose) #store it in iteratable array and not triple nested
-    joined_array = transposed_array.map do |array|
-      writer.write("#{array.join}\n")                    #join array elements together, start a new line after each element, and write it to braille.txt
+    transposed_array.concat(braille_character.transpose)
+    
+    # if the first element(tops array) of transposed array < 40
+    if transposed_array[0].length < 40
+      joined_array = transposed_array.map do |array|
+        #join array elements together and start a new line after each element, and write it to braille.txt
+        writer.write("#{array.join}\n")                    
+      end
+    else
+      chunk_it(transposed_array)
+    end
+  end
+
+  def chunk_it(transposed_array)
+    #iterate over broken transposed array into three separate arrays by length
+    #40 char and less than 40 char
+    #you will have 6 arrays
+    transposed_array.each do |array|
+      array.slice[0..40]
+      writer.write("#{array.join}\n")
     end
   end
 end
-
 # require 'pry'; binding.pry
    
 #for one character message
@@ -59,3 +80,25 @@ end
 # or
 
 # braille_character[0][0] + "\n" + braille_character[0][1] + "\n" + braille_character[0][2]
+
+# for less than or equal to 40 characters
+#     ' '=>['..', '..', '..']
+# }
+#split the message into individual string characters
+# iterate over each character in the array, find it in the hash(it's a key), and
+# shovel its value(braille array) into braille_character
+# braille_character = []
+# message.split(//).each do |char|
+#   braille_character << translator[char] 
+# end 
+
+# transpose the arrays of braille chars into three arrays of tops, middles, and bottoms
+# braille_character.transpose
+# transposed_array = []
+# require 'pry'; binding.pry
+# transposed_array.concat(braille_character.transpose) #store transposed array in transposed array. if you use shovel, it will be tripled nested
+# joined_array = transposed_array.map do |array|
+#   writer.write("#{array.join}\n")                    #join array elements together, start a new line after each element, and write it to braille.txt
+# end
+# end
+# end
