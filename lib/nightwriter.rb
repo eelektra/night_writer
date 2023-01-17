@@ -45,26 +45,57 @@ class NightWriter
     transposed_array.concat(braille_character.transpose)
     
     # if the first element(tops array) of transposed array < 40
-    if transposed_array[0].length < 40
+    if transposed_array[0].length <= 40
       joined_array = transposed_array.map do |array|
         #join array elements together and start a new line after each element, and write it to braille.txt
         writer.write("#{array.join}\n")                    
       end
     else
-      chunk_it(transposed_array)
+      chunk_it(transposed_array, writer)
     end
   end
 
-  def chunk_it(transposed_array)
-    #iterate over broken transposed array into three separate arrays by length
-    #40 char and less than 40 char
-    #you will have 6 arrays
-    transposed_array.each do |array|
-      array.slice[0..40]
-      writer.write("#{array.join}\n")
+  def chunk_it(transposed_array, writer)
+    #assign each array of transposed_array into three separate arrays
+    top = transposed_array[0]
+    mid = transposed_array[1]
+    bottom = transposed_array[2]
+   
+    #break each array into sets of 40
+    if transposed_array.size < 80
+    top_line = top.each_slice(40).to_a 
+    middle_line = mid.each_slice(40).to_a
+    bottom_line = bottom.each_slice(40).to_a
+    
+    #write all the top lines follwed by m
+    writer.write("#{top_line[0].join}\n")
+    writer.write("#{middle_line[0].join}\n")
+    writer.write("#{bottom_line[0].join}\n")
+    writer.write("#{top_line[1].join}\n")
+    writer.write("#{middle_line[1].join}\n")
+    writer.write("#{bottom_line[1].join}\n")
+
+    elsif top.size < 120
+    #break each array into sets of 40
+      top_line = top.each_slice(40).to_a 
+      middle_line = mid.each_slice(40).to_a
+      bottom_line = bottom.each_slice(40).to_a
+      
+      #write all the top lines follwed by m
+      writer.write("#{top_line[0].join}\n")
+      writer.write("#{middle_line[0].join}\n")
+      writer.write("#{bottom_line[0].join}\n")
+      writer.write("#{top_line[1].join}\n")
+      writer.write("#{middle_line[1].join}\n")
+      writer.write("#{bottom_line[1].join}\n")
+      writer.write("#{top_line[2].join}\n")
+      writer.write("#{middle_line[2].join}\n")
+      writer.write("#{bottom_line[2].join}\n")
+    else puts "more than 120 characters"
     end
   end
 end
+
 # require 'pry'; binding.pry
    
 #for one character message
@@ -101,4 +132,12 @@ end
 #   writer.write("#{array.join}\n")                    #join array elements together, start a new line after each element, and write it to braille.txt
 # end
 # end
-# end
+# end 
+
+# chunked_array = []
+#     transposed_array.each do |array|
+#       chunked_array.concat(array.each_slice(40).to_a)   
+#     end
+#     chunked_array.transpose
+    
+#       writer.write("#{chunked_array[i].join}\n")
