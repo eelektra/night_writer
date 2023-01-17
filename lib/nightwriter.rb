@@ -84,14 +84,15 @@ class NightWriter
       #write all the top lines follwed by m
       writer.write("#{top_line[0].join}\n")
       writer.write("#{middle_line[0].join}\n")
-      writer.write("#{bottom_line[0].join}\n")
+      writer.write("#{bottom_line[0].join}\n\n")
       writer.write("#{top_line[1].join}\n")
       writer.write("#{middle_line[1].join}\n")
-      writer.write("#{bottom_line[1].join}\n")
+      writer.write("#{bottom_line[1].join}\n\n")
       writer.write("#{top_line[2].join}\n")
       writer.write("#{middle_line[2].join}\n")
       writer.write("#{bottom_line[2].join}\n")
-    else puts "more than 120 characters"
+
+    else puts "Please enter 1 to 120 chars"
     end
   end
 end
