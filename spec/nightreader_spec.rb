@@ -22,7 +22,15 @@ describe NightReader do
       braille_msg = NightReader.new
       braille_msg.translate_braille_to_english(".00.0.\n0000.0\n0.....\n", output)
       output.rewind
-      expect(output.read).to eq('the')
+      expect(File.read(output)).to eq('the')
     end
+
+    it 'can convert braille the quick brown fox jumps over the lazy dog' do
+      braille_msg = NightReader.new
+      braille_msg.translate_braille_to_english(".00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00...0......0.00.000.0..0..0....0.....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n000.00\n.0.000\n..0...\n", output)
+      output.rewind
+      expect(File.read(output)).to eq('the quick brown fox jumps over the lazy dog')
+    # .00.0...000..0000...0.0.0..000..000.00...00.0000.0..0.0.0.0....00.0...0.0.0.00..\n0000.0..00...0......0.00.000.0..0..0....0.....0.0....00..000..0000.0..0....0.0..\n0.......0.00....0.....0.0..00.....0.00....000.0.0...0.00..0...0.......0...0000..\n000.00\n.0.000\n..0...\n")
+    end  
   end
 end

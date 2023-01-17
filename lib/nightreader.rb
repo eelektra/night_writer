@@ -33,30 +33,30 @@ class NightReader
     #convert the message in braille.txt to an array and store it in an empty array
     braille_array = []
     braille_array = message.split($/)
-          
+     
     # chunk the array into an array of arrays by twos 
     single_string_array = braille_array.map do |string|
       string.scan(/../)
     end
-
+    i=0
+    n=2
+    char_array = []
+    while n < single_string_array.length
+      char_array.concat(single_string_array[i..n].transpose)
+      i += 3
+      n += 3
+    end
     # then convert to an array of arrays by character
-    char_array = single_string_array.transpose
-    
+    #char_array = single_string_array.transpose
+     
     #get the array's value which will be the translation or english letter
     #and write it to writer (original_message.txt)
     char_array.each do |char|
     writer.write(translator[char])  
+
+
     end          
   end
 end
 
     # require 'pry'; binding.pry
-
-    # for one character
-    #convert the message in braille.txt to an array and store it in an empty array
-    # braille_array = []
-    # braille_array = message.split($/)
-    # require 'pry'; binding.pry
-    #get the array's value which will be the translation or english letter
-    #and write it to writer (original_message.txt)
-    #  writer.write(translator[braille_array])   
