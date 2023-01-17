@@ -70,7 +70,7 @@ class NightWriter
     #write all the top lines follwed by m
     writer.write("#{top_line[0].join}\n")
     writer.write("#{middle_line[0].join}\n")
-    writer.write("#{bottom_line[0].join}\n")
+    writer.write("#{bottom_line[0].join}\n\n")
     writer.write("#{top_line[1].join}\n")
     writer.write("#{middle_line[1].join}\n")
     writer.write("#{bottom_line[1].join}\n")
