@@ -53,9 +53,10 @@ class NightReader
     #get the array's value which will be the translation or english letter
     #and write it to writer (original_message.txt)
     char_array.each do |char|
-    writer.write(translator[char])  
-    end          
+      writer.write(translator[char])  
+    end  
   end
 end
 
-    # require 'pry'; binding.pry
+
+    
