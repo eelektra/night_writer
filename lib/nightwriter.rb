@@ -29,25 +29,32 @@ class NightWriter
                   'z'=>['0.', '.0', '00'],
                   ' '=>['..', '..', '..']
                 }
-    # split into individual english chars and translate
-    braille_character = []
-    message.split(//).each do |char|
-      braille_character << translator[char] 
-    end 
+
+    # split into individual english chars and delete special chars and numbers
+    capitalized = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
+     
+    clean_message = message.split(//).select do |char|
+      translator.keys.include?(char) or capitalized.include?(char)
+    end
+    # 
+
+    braille_characters = []
+    clean_message.each do |char|  
+        braille_characters << translator[char.downcase]
+    end
     
     # transpose the arrays of braille chars into an array of three arrays 
     # of tops, middles, and bottoms
-    braille_character.transpose
-    
+    # braille_characters.transpose
+
     #store the transposed array in transposed array using #concat. 
     #if you use shovel it will be tripled nested
     transposed_array = []
-    transposed_array.concat(braille_character.transpose)
-    
+    transposed_array.concat(braille_characters.transpose)
+    # require 'pry'; binding.pry
     # if the first element(tops array) of transposed array < 40
     if transposed_array[0].length <= 40
       joined_array = transposed_array.map do |array|
-        # require 'pry'; binding.pry
         #join array elements together and start a new line after each element, and write it to braille.txt
         writer.write("#{array.join}\n")                    
       end
