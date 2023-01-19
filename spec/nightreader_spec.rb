@@ -3,8 +3,8 @@ require './lib/nightreader'
 
 describe NightReader do
   describe 'initialize' do
-    input = File.open("brlle.txt", "w+")  { |file| file.write(".00.0.\n0000.0\n0.....\n") }                                      #opens a new file and assigns it to file
-    output = File.open("engl.txt", "w+") 
+    input = File.open("brlle2.txt", "w+")  { |file| file.write(".00.0.\n0000.0\n0.....\n") }                                      #opens a new file and assigns it to file
+    output = File.open("engl2.txt", "w+") 
 
     it 'exists' do
       braille_msg = NightReader.new
